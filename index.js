@@ -36,7 +36,7 @@ app.get('/post/new', (req,res) => {
     res.render('create');
 });
 
-app.get('/posts/store',(req,res) => {
+app.post('/posts/store',(req,res) => {
     console.log(req.body);
     res.render('/');
 });
