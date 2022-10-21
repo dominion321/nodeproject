@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header'); -%>
+<body>
+    <%- include('layouts/navbar'); -%>
+    
+    <% for(var i = 0; i < blogposts.length;i++) { %>
+        <h2><%=blogposts[i].title %></h2>
+        <p><%=blogposts[i].body %></p>
+        <%}%>
+        <form action="/post/search" method="get">
+            <input type="text" id="text" name="title" placeholder="Enter search">
+            <input type="submit" value="Submit">
+        </form>
+</body>
+</html>
