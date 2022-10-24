@@ -29,10 +29,12 @@ app.get('/', async (req,res) => {
     res.render('index', {blogposts});
 });
 
+//The About Page
 app.get('/about', (req,res) => {
     res.render('about');
 });
 
+//The Contact Page
 app.get('/contact', (req,res) => {
     res.render('contact');
 });
@@ -41,10 +43,13 @@ app.get('/contact', (req,res) => {
 app.get('/test',(req,res) => {
     res.render()
 })
+
+//Opens up the available posts
 app.get('/post', (req,res) => {
     res.render('post');
 })
 
+//Opens up the 'New Post' Page
 app.get('/post/new', (req,res) => {
     res.render('create');
 });
@@ -59,16 +64,19 @@ app.get('/post/new', (req,res) => {
 //     res.render('test', {blogposts});
 // })
 
+//Creating a Post for the user
 app.post('/posts/store',async (req,res) => {
     await BlogPost.create(req.body, (error,blogpost) =>{
         res.redirect('/');
     })
 });
 
+//The Index page 
 app.get('/post', (req,res) =>{
     res.render('/');
 })
 
+//Opens all the available posts in one page
 app.get('/post/:id', async (req,res) => {
     const blogpost = await BlogPost.findById(req.params.id);
     console.log(blogpost, "Oshey ooo");
